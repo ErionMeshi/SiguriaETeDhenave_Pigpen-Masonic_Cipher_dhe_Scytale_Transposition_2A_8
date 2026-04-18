@@ -22,4 +22,4 @@ def scytale_encrypt(text, key):
                 result += grid[r][c]
 
     return result
-    pass
+
