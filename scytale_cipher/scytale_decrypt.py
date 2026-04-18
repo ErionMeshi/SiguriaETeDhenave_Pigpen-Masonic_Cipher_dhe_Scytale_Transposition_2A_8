@@ -1,21 +1,23 @@
-def scytale_decrypt(ciphertext, key):
-    plaintext = [''] * key
+import math
 
-    col_length = len(ciphertext) // key
-    extra = len(ciphertext) % key
+def scytale_decrypt(ciphertext, key):
+    rows = math.ceil(len(ciphertext) / key)
+    cols = key
+
+    grid = [[""] * cols for _ in range(rows)]
 
     index = 0
-
-    for i in range(key):
-        length = col_length + (1 if i < extra else 0)
-        plaintext[i] = ciphertext[index:index + length]
-        index += length
+    for c in range(cols):
+        for r in range(rows):
+            if index < len(ciphertext):
+                grid[r][c] = ciphertext[index]
+                index += 1
 
     result = ""
-    for i in range(col_length + 1):
-        for j in range(key):
-            if i < len(plaintext[j]):
-                result += plaintext[j][i]
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c]:
+                result += grid[r][c]
 
     return result
 
