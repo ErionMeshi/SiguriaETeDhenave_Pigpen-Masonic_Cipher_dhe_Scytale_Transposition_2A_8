@@ -13,3 +13,11 @@ def encrypt(text, pigpen):
             result += char #nese so shkronje, e lajm qysh o
 
     return result #teksi i enkriptuar
+
+pigpen = {
+    'A':'┌','B':'┬','C':'┐','D':'├','E':'┼','F':'┤','G':'└','H':'┴','I':'┘',
+    'J':'⌜','K':'⌝','L':'⌞','M':'⌟','N':'⊣','O':'⊢','P':'⊥','Q':'∧','R':'∨',
+    'S':'□','T':'■','U':'▢','V':'▣','W':'◇','X':'◆','Y':'○','Z':'●'
+}
+
+print(encrypt("HELLO", pigpen))
